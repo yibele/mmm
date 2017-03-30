@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,6 +9,10 @@
     <body>
 
     <script type="text/javascript" charset="utf-8">
+
+        function refresh_code(){
+            document.getElementById("imgcode").src = '../inc/verifycode.php?a="+Math.random()"';
+        }
         
         function login(){
             if($("#Username").val()!="" && $("#Password").val()!=""){
@@ -31,7 +22,13 @@
                     data:{'Username':$("#Username").val(),'Password':$("#Password").val()},
                     datatype:"text",
                     success:function(data){
-                        alert(data);
+                        if(data=='0'){
+                            $("#ts").var(1);
+                            $.messager.alert('jinggao','username,password error','error',function(){$("#Username").focus();$("#ts").val(0);});
+                        }else{
+                            alert(data);
+                            location.href = "Home.php?sid="+data;
+                        }
                     }
 
 

@@ -45,6 +45,20 @@ class Mysql{
     public function Insert($table , $args , $debug = false)
     {
         $this->checkFields($table, $args);
+        $Sql  = '';
+        foreach($args as $k=>$v){
+            $Sql .=", `$k`='$v'";
+        }
+        $Sql = substr($Sql,1);
+        $Sql = "INSERT INTO `$table` SET $Sql";
+        if($debug){
+            exit($Sql);
+        }
+        if($this->dbh->exec($Sql)){
+            $this->getPDOError();
+            return $this->dbh->lastInsertId();
+        }
+        return false;
     }
 }
 

@@ -1,9 +1,9 @@
 <?php
 
-//require_once('inc/CheckLogin.php');
-//require_once('../inc/config.pdo.php');
+require_once('../inc/CheckLogin.php');
+require_once('../inc/config.pdo.php');
 
-//$sid = session_id($_REQUEST['id']);
+$sid = session_id($_REQUEST['id']);
 
 //显示星期
 //

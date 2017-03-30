@@ -10,7 +10,7 @@ $dbuser = 'root';
 
 $dbpw = '';
 
-$dbname = '';
+$dbname = 'mzyy';
 
 $dbcharset = 'utf8';
 
